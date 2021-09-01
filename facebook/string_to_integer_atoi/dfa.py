@@ -15,10 +15,10 @@ def myAtoi(s: str) -> int:
             elif c == '-' and not signed:
                 neg = signed = True
             elif c.isdigit():
-                signed == True
+                signed = True
                 ans = ans * 10 + int(c)
             else:
-                signed == True
+                signed = True
                 break
     if signed and neg:
         ans *= -1
