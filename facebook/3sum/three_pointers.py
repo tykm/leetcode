@@ -6,6 +6,9 @@ def threesum(nums: list[int]) -> list[list[int]]:
         left = i + 1
         right = len(nums) - 1
 
+        while left < right:
+            
+
 
     return ans
 
