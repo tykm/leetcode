@@ -19,8 +19,10 @@ def threesum(nums: list[int]) -> list[list[int]]:
                 r -= 1
             else:   # sm = 0
                 ans.append([nums[i], nums[l], nums[r]])
+                # why l<r here?
                 while l < r and nums[l] == nums[l + 1]:
                     l += 1
+                # why l<r?
                 while l < r and nums[r] == nums[r - 1]:
                     r -= 1
                 l += 1
