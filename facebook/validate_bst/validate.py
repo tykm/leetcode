@@ -5,20 +5,19 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        # no children return true
-        if root == None or (root.left == None and root.right == None):
-            return True
+    def isValidBST(self, root: Optional[TreeNode], smaller_than=float('inf'), bigger_than=float('-inf')) -> bool:
+        # Base case: empty node means we're OK
+        if root == None: return True
         
-        # Check if left and right are valid
-        if root.left != None:
-            if root.left.val >= root.val:
+        # Fail case: child does not fit criteria
+        if root.left:
+            if root.left.val >= root.val or root.left.val <= bigger_than or root.left.val >= smaller_than:
                 return False
-        if root.right != None:
-            if root.right.val <= root.val:
+        if root.right:
+            if root.right.val <= root.val or root.right.val >= smaller_than or root.right.val <= bigger_than:
                 return False
-            
-        # Recurse children
-        return self.isValidBST(root.left) and self.isValidBST(root.right)
+        
+        # Recurse left AND right
+        return self.isValidBST(root.left, min(smaller_than, root.val)) and self.isValidBST(root.right, smaller_than, max(bigger_than, root.val))
         
                 
