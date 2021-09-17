@@ -7,22 +7,19 @@ class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         q = []
         ct = 0
-        ct_node = two = head
+        ct_node = head
         while ct_node:
             ct_node = ct_node.next
             ct += 1
         for i in range(ct):
             if i < ct//2:
-                q.append(two.val)
-                two = two.next
-                #print(q)
+                q.append(head.val)
+                head = head.next
             elif i == ct//2 and ct % 2 == 1:
-                two = two.next
-                #print(q)
+                head = head.next
             else:
-                #print(two.val)
-                if two.val != q.pop():
+                if head.val != q.pop():
                     return False
-                two = two.next
+                head = head.next
         return True
             
