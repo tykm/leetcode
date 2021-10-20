@@ -20,7 +20,7 @@ def find(arr: list[int], k: int, x: int) -> list[int]:
         if left < 0:
             return arr[left+1:right+1+k-right+1]
         elif right > len(arr) - 1:
-            return arr[        :right-1]
+            return arr[left-k-left+1:right-1]
             
             
     
