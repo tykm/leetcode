@@ -1,12 +1,14 @@
 def decToBin(dec):
     stack = []
     ans = ''
+    
     def recur(deci):
         half = deci // 2
         r = deci % 2
         stack.append(r)
         if half > 0:
             recur(half)
+            
     recur(dec)
     while stack:
         ans += (str(stack.pop()))
