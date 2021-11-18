@@ -1,3 +1,5 @@
+# Fails edge cases. Saving this iteration 
+
 class Solution:
     def totalFruit(self, fruits: List[int]) -> int:
         max_fruits = 0
