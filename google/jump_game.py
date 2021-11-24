@@ -1,6 +1,5 @@
 '''
-I think correct but runtime is too slow for Leetcode to grade. 77/166 test cases passed.
-Could improve by instead of using a hashmap, keep a pointer for max jump position. From that jump position, work backwards if there is no path. This way, we can skip certain indices.
+This implementation uses an integer to store the max jump index. No more hashmap and O(n) time and O(1) space. Needs work on the while loop conditions.
 '''
 
 class Solution:
@@ -8,17 +7,18 @@ class Solution:
         if len(nums) == 1:
             return True
         
-        jumpable = {0}   # { index:True for indices in List }
+        curr = 0
+        jumpable = 0    # Pointer to store max jumpable index
         
-        # Touch each number once
-        for index in range(len(nums)):
+        # While we are allowed to jump forward:
+        while jumpable >= curr and curr < len(nums) or jumpable == 0:
+            curr_jump = nums[curr]
             
-            # Check if current index is jumpable
-            if index not in jumpable:
-                return False
-                
-            # Log jumpable locations in set
-            for i in range(nums[index]):
-                jumpable.add(index + i + 1)
+            # Check if current + nums[current] > jumpable: set jumpable
+            jumpable = max(jumpable, curr + curr_jump)
+            print(curr, curr_jump, jumpable)
+            curr += 1
         
+        if jumpable < len(nums) - 1:
+            return False
         return True
