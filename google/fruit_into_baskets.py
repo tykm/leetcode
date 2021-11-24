@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Start 6:22pm
-=======
 # Fails edge cases. Saving this iteration 
 
 class Solution:
@@ -48,4 +45,3 @@ class Solution:
 
             
         return max_fruits
->>>>>>> 66cceffa8e124a51391277bcd324eb8c2a292fdd
