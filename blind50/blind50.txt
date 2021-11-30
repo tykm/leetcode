@@ -1,0 +1,13 @@
+https://techinterviewhandbook.org/best-practice-questions/
+
+Week 1 - Sequences
+Week 2 - Data Structures
+Week 3 - Non-Linear Data Structures
+Week 4 - More Data Structures
+Week 5 - Dynamic Programming
+
+Goal: Tyler will attempt to accomplish this list in 5 weeks. Average of 10 problems per week. 
+
+Potential Problems: The first two weeks are easy, but the difficulty ramps up exponentially. I think when I reach the heaps & trees section I will have trouble and need to put more time into it.
+
+Solution: I can frontload the work. Try to do 2 weeks of problems in 1.5 weeks.
