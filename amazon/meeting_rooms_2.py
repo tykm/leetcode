@@ -23,9 +23,10 @@ class Solution:
         room_count = 0
         e = 0
         for b in range(len(begin)):
-            # If there has not been an ended meeting, use a new room
-            if begin[b] < end[e]:
-                room_count += 1
-            else:
+            # If there is an ended meeting, then we don't have to create a new room
+            if begin[b] >= end[e]:
                 e += 1
+            # If there is not an ended meeting, then we have to create a new room
+            else:
+                room_count += 1
         return room_count
