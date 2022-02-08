@@ -1,21 +1,31 @@
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
-        # Start by sorting the intervals list according by start time
-        # O(n*log(n))
-        def sort_by_start(interval):
-            return interval[0]
-        intervals.sort(key=sort_by_start)
+        # Edge case: only 1 meeting
+        if len(intervals) == 1:
+            return 1
         
-        # Define variables
-        rooms = 0
-        ongoing_meetings = 0
-        start_count = {}
-        low = float(inf)
-        high = float(-inf)
+        # We only care when any meeting begins and any meeting ends
+        # The begin/end of a meeting are not important to keep linked.
+        # We separate the starts and end times and then sort them in ascending order
+        begin = []
+        end = []
+        for itvl in intervals:
+            begin.append(itvl[0])
+            end.append(itvl[1])
+        begin.sort()
+        end.sort()
+        print(begin)
+        print(end)
         
-        #[[0, 30], [5, 10], [15, 20]]
-        for interval in intervals:
-            begin = interval[0]
-            end = interval[1]
-            start_count[begin] = start_count.get(begin, 0) + 1
-            # Check if any meetings are over
+        # Now that we have the sorted beginning and end, we can
+        # iterate over the beginning times and compare against the end times
+        # to check if any meetings have ended
+        room_count = 0
+        e = 0
+        for b in range(len(begin)):
+            # If there has not been an ended meeting, use a new room
+            if begin[b] < end[e]:
+                room_count += 1
+            else:
+                e += 1
+        return room_count
